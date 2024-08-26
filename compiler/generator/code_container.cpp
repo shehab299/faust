@@ -546,6 +546,7 @@ void CodeContainer::mergeSubContainers()
         fGlobalDeclarationInstructions->merge(it->fGlobalDeclarationInstructions);
         fDeclarationInstructions->merge(it->fDeclarationInstructions);
         fControlDeclarationInstructions->merge(it->fControlDeclarationInstructions);
+        fUserInterfaceInstructions->merge(it->fUserInterfaceInstructions);
         // TO CHECK (used for waveform initialisation which has to be moved first...)
         fStaticInitInstructions->mergeFront(it->fStaticInitInstructions);
         // Then clear it
@@ -553,6 +554,7 @@ void CodeContainer::mergeSubContainers()
         it->fExtGlobalDeclarationInstructions->fCode.clear();
         it->fDeclarationInstructions->fCode.clear();
         it->fControlDeclarationInstructions->fCode.clear();
+        it->fUserInterfaceInstructions->fCode.clear();
         it->fStaticInitInstructions->fCode.clear();
     }
 

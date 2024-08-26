@@ -225,5 +225,37 @@ class AudioChannels
         FAUSTFLOAT** buffers() { return fChannels; }
 };
 
+// Default DSP
+struct default_dsp : public dsp {
+    
+    int getNumInputs() { return 1; }
+    
+    int getNumOutputs() { return 1; }
+    
+    void buildUserInterface(UI* ui_interface) {}
+    
+    int getSampleRate() { return 44100; }
+    
+    void init(int sample_rate) {}
+    
+    void instanceInit(int sample_rate) {}
+    
+    void instanceConstants(int sample_rate) {}
+    
+    void instanceResetUserInterface() {}
+    
+    void instanceClear() {}
+    
+    dsp* clone() { return new default_dsp(); }
+    
+    void metadata(Meta* m) {}
+    
+    void compute(int count, FAUSTFLOAT** inputs, FAUSTFLOAT** outputs)
+    {
+        memset(outputs[0], 0, count * sizeof(FAUSTFLOAT));
+    }
+    
+};
+
 #endif
 /************************** END dsp-tools.h **************************/
