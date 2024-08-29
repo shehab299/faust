@@ -25,7 +25,7 @@ jobs:
         uses: lukka/run-vcpkg@v7
         with:
           vcpkgGitCommitId: 'f0c8848cde589649bca3ab3649668540403786ce'
-          vcpkgArguments: 'install curl:x64-windows'
+          vcpkgArguments: 'curl'
       
 
       - name: Install libcurl
