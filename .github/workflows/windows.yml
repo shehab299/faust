@@ -27,12 +27,6 @@ jobs:
           vcpkgGitCommitId: 'f0c8848cde589649bca3ab3649668540403786ce'
           vcpkgArguments: 'curl'
       
-
-      - name: Install libcurl
-        run: |
-          vcpkg install curl:x64-windows
-          vcpkg integrate install
-
       - name: Build Faust
         run: |
           make -C build cmake BACKENDS=regular.cmake TARGETS=win-ci.cmake ADDITIONAL_CMAKE_FLAGS="-DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake"
