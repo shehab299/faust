@@ -21,8 +21,12 @@ jobs:
       - name: Get latest CMake and ninja
         uses: lukka/get-cmake@latest
 
-      - name: Install vcpkg
+      - name: Install vcpkg and Dependencies
         uses: lukka/run-vcpkg@v7
+        with:
+          vcpkgGitCommitId: 'f0c8848cde589649bca3ab3649668540403786ce'
+          vcpkgArguments: 'install curl:x64-windows'
+      
 
       - name: Install libcurl
         run: |
